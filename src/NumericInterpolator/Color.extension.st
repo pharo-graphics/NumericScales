@@ -1,6 +1,6 @@
-Extension { #name : #Color }
+Extension { #name : 'Color' }
 
-{ #category : #'*NumericInterpolator' }
+{ #category : '*NumericInterpolator' }
 Color >> interpolateTo: anObject at: t [
 	| start stop |
 	anObject isColor ifFalse: [ ^ anObject interpolateTo: self at: 1 - t  ].

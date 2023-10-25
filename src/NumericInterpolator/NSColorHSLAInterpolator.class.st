@@ -2,12 +2,14 @@
 reate a color with the given hue, saturation, lightness, and alpha.
 "
 Class {
-	#name : #NSColorHSLAInterpolator,
-	#superclass : #NSColorRGBAInterpolator,
-	#category : #'NumericInterpolator-Interpolators'
+	#name : 'NSColorHSLAInterpolator',
+	#superclass : 'NSColorRGBAInterpolator',
+	#category : 'NumericInterpolator-Interpolators',
+	#package : 'NumericInterpolator',
+	#tag : 'Interpolators'
 }
 
-{ #category : #interpolation }
+{ #category : 'interpolation' }
 NSColorHSLAInterpolator >> interpolate: t [
 	^ Color
 		h: start hue + ((stop hue - start hue) * t)

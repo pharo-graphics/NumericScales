@@ -1,6 +1,6 @@
-Extension { #name : #GradientPaint }
+Extension { #name : 'GradientPaint' }
 
-{ #category : #'*NumericInterpolator' }
+{ #category : '*NumericInterpolator' }
 GradientPaint >> interpolateTo: anObject at: t [
 	| otherRamp ramp newRamp |
 	otherRamp := anObject isColor

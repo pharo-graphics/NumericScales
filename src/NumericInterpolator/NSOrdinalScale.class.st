@@ -2,23 +2,25 @@
 I am a scale for ordinal ranges
 "
 Class {
-	#name : #NSOrdinalScale,
-	#superclass : #NSScale,
+	#name : 'NSOrdinalScale',
+	#superclass : 'NSScale',
 	#instVars : [
 		'ranger',
 		'dictionary',
 		'argument',
 		'rangeBand'
 	],
-	#category : #'NumericInterpolator-Scales'
+	#category : 'NumericInterpolator-Scales',
+	#package : 'NumericInterpolator',
+	#tag : 'Scales'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSOrdinalScale >> dictionary [
 	^ dictionary
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSOrdinalScale >> domain: arr [
 
 	domain := OrderedCollection new.
@@ -30,7 +32,7 @@ NSOrdinalScale >> domain: arr [
 	self perform: ranger withArguments: argument
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 NSOrdinalScale >> initialize [
 	super initialize.
 	ranger := #range:.
@@ -38,13 +40,13 @@ NSOrdinalScale >> initialize [
 	self domain: #()
 ]
 
-{ #category : #transformation }
+{ #category : 'transformation' }
 NSOrdinalScale >> invert: anObject [
 
 	^ self linearScale invert: anObject
 ]
 
-{ #category : #transformation }
+{ #category : 'transformation' }
 NSOrdinalScale >> linearScale [
 
 	^ NSScale linear
@@ -53,7 +55,7 @@ NSOrdinalScale >> linearScale [
 		yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSOrdinalScale >> range: x [
 
 	range := x.
@@ -62,22 +64,22 @@ NSOrdinalScale >> range: x [
 	argument := Array with: x
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSOrdinalScale >> rangeBand [
 	^ rangeBand
 ]
 
-{ #category : #public }
+{ #category : 'public' }
 NSOrdinalScale >> rangeBands: x [
 	self rangeBands: x padding: 0
 ]
 
-{ #category : #public }
+{ #category : 'public' }
 NSOrdinalScale >> rangeBands: x padding: padding [
 	self rangeBands: x padding: padding outerPadding: padding
 ]
 
-{ #category : #public }
+{ #category : 'public' }
 NSOrdinalScale >> rangeBands: x padding: padding outerPadding: outerPadding [
 	| start stop step reverse |
 	start := x first.
@@ -99,22 +101,22 @@ NSOrdinalScale >> rangeBands: x padding: padding outerPadding: outerPadding [
 	argument := Array with: x with: padding with: outerPadding
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSOrdinalScale >> rangeExtent [
 	^ self scaleExtent: argument first
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSOrdinalScale >> rangeFrom: array [
 	self range: (array collect: [ :val | Color colorFrom: val ])
 ]
 
-{ #category : #public }
+{ #category : 'public' }
 NSOrdinalScale >> rangePoints: x [
 	self rangePoints: x padding: 0
 ]
 
-{ #category : #public }
+{ #category : 'public' }
 NSOrdinalScale >> rangePoints: x padding: padding [
 	| start stop step |
 	start := x first.
@@ -131,17 +133,17 @@ NSOrdinalScale >> rangePoints: x padding: padding [
 	argument := Array with: x with: padding
 ]
 
-{ #category : #public }
+{ #category : 'public' }
 NSOrdinalScale >> rangeRoundBands: x [
 	self rangeRoundBands: x padding: 0
 ]
 
-{ #category : #public }
+{ #category : 'public' }
 NSOrdinalScale >> rangeRoundBands: x padding: padding [
 	self rangeRoundBands: x padding: padding outerPadding: padding
 ]
 
-{ #category : #public }
+{ #category : 'public' }
 NSOrdinalScale >> rangeRoundBands: x padding: padding outerPadding: outerPadding [
 	| start stop step reverse |
 	start := x first.
@@ -161,12 +163,12 @@ NSOrdinalScale >> rangeRoundBands: x padding: padding outerPadding: outerPadding
 	argument := Array with: x with: padding with: outerPadding
 ]
 
-{ #category : #public }
+{ #category : 'public' }
 NSOrdinalScale >> rangeRoundPoints: x [
 	self rangeRoundPoints: x padding: 0
 ]
 
-{ #category : #public }
+{ #category : 'public' }
 NSOrdinalScale >> rangeRoundPoints: x padding: padding [
 	| start stop step |
 	start := x first.
@@ -185,7 +187,7 @@ NSOrdinalScale >> rangeRoundPoints: x padding: padding [
 	argument := Array with: x with: padding
 ]
 
-{ #category : #transformation }
+{ #category : 'transformation' }
 NSOrdinalScale >> scale: x [
 	| index |
 	index := dictionary at: x ifAbsent: [ nil ].
@@ -207,7 +209,7 @@ NSOrdinalScale >> scale: x [
 	^ range at: index
 ]
 
-{ #category : #helpers }
+{ #category : 'helpers' }
 NSOrdinalScale >> scaleExtent: d [
 	| start stop |
 	start := d first.
@@ -217,7 +219,7 @@ NSOrdinalScale >> scaleExtent: d [
 		ifFalse: [ Array with: stop with: start ]
 ]
 
-{ #category : #helpers }
+{ #category : 'helpers' }
 NSOrdinalScale >> steps: start and: step [
 	^ (0 to: domain size - 1) collect: [ :i | (start + (step * i)) asFloat ]
 ]

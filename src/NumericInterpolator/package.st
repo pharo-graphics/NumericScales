@@ -1,1 +1,1 @@
-Package { #name : #NumericInterpolator }
+Package { #name : 'NumericInterpolator' }

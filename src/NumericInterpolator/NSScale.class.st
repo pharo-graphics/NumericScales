@@ -72,70 +72,72 @@ c open
 ```
 "
 Class {
-	#name : #NSScale,
-	#superclass : #Object,
+	#name : 'NSScale',
+	#superclass : 'Object',
 	#instVars : [
 		'domain',
 		'range',
 		'interpolate',
 		'uninterpolate'
 	],
-	#category : #'NumericInterpolator-Scales'
+	#category : 'NumericInterpolator-Scales',
+	#package : 'NumericInterpolator',
+	#tag : 'Scales'
 }
 
-{ #category : #colors }
+{ #category : 'colors' }
 NSScale class >> category10 [
 	^ self fromColorCategory: #category10
 ]
 
-{ #category : #colors }
+{ #category : 'colors' }
 NSScale class >> category20 [
 	^ self fromColorCategory: #category20
 ]
 
-{ #category : #colors }
+{ #category : 'colors' }
 NSScale class >> category20b [
 	^ self fromColorCategory: #category20b
 ]
 
-{ #category : #colors }
+{ #category : 'colors' }
 NSScale class >> category20c [
 	^ self fromColorCategory: #category20c
 ]
 
-{ #category : #colors }
+{ #category : 'colors' }
 NSScale class >> eva10 [
 	^ self fromColorCategory: #eva10
 ]
 
-{ #category : #colors }
+{ #category : 'colors' }
 NSScale class >> fromColorCategory: symbol [
 	^ self ordinal
 		range: ( symbol value: NSColorRGBAInterpolator);
 		yourself
 ]
 
-{ #category : #colors }
+{ #category : 'colors' }
 NSScale class >> google20 [
 	^ self fromColorCategory: #google20
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 NSScale class >> linear [
-	^ NSLinearScale new.
+	^ NSLinearScale new
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 NSScale class >> ln [
 	^ NSLnScale new
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 NSScale class >> log [
 	^ NSLogScale new
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 NSScale class >> ordinal [
 "Define an ordinal scale.
 
@@ -161,7 +163,7 @@ c open
 	^ NSOrdinalScale new
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 NSScale class >> ordinalColored: numberOfBuckets [
 "Define an ordinal scale for colors. It accepts the number of allocated buckets.
 
@@ -187,39 +189,39 @@ c open
 	^ self ordinal range: (Color wheel: numberOfBuckets saturation: 0.4 brightness: 1.0)
 ]
 
-{ #category : #colors }
+{ #category : 'colors' }
 NSScale class >> paired12 [
 	^ self fromColorCategory: #paired12
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 NSScale class >> pow [
 	^ NSPowScale new
 ]
 
-{ #category : #colors }
+{ #category : 'colors' }
 NSScale class >> sky8 [
 	^ self fromColorCategory: #sky8
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 NSScale class >> sqrt [
 	^ self pow
 		exponent: 0.5;
 		yourself
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 NSScale class >> symlog [
 	^ NSSymLogScale new
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSScale >> domain [
 	^ domain
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSScale >> domain: aTwoArrayAsNumbers [
 	"Define the domain of the input values. Values provided to scale: should be within the domain
 	For example
@@ -234,39 +236,39 @@ NSScale >> domain: aTwoArrayAsNumbers [
 	domain := aTwoArrayAsNumbers
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSScale >> from [
 	^ self range first
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSScale >> from: value [
 	self range: { value. self range last }
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSScale >> interpolate [
 	^ interpolate
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSScale >> interpolate: anObject [
 	interpolate := anObject
 ]
 
-{ #category : #transformation }
+{ #category : 'transformation' }
 NSScale >> invert: anObject [
 	"This is the inverse of scale"
 	self subclassResponsibility
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSScale >> niceTicks: aNumberOfTicks [
 
 	^ self ticks: aNumberOfTicks
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 NSScale >> printOn: stream [
 	super printOn: stream.
 	stream << '('.
@@ -276,13 +278,13 @@ NSScale >> printOn: stream [
 	stream << ')'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSScale >> range [
 	"Return the array of values to which the domain is mapped to"
 	^ range
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSScale >> range: someValues [
 	"Expect an array of two or more values.
 This is to what a domain is mapped to.
@@ -308,18 +310,18 @@ Return a gray-red color`
 	range := someValues
 ]
 
-{ #category : #transformation }
+{ #category : 'transformation' }
 NSScale >> rsValue: obj [
 	^ self scale: obj
 ]
 
-{ #category : #transformation }
+{ #category : 'transformation' }
 NSScale >> scale: anObject [
 	"do you have your domain, and your range? ok so use this method in one of my subclasses"
 	self subclassResponsibility
 ]
 
-{ #category : #transformation }
+{ #category : 'transformation' }
 NSScale >> ticks: anInteger [
 
 	| rangeForDividing |
@@ -327,22 +329,22 @@ NSScale >> ticks: anInteger [
 	^ rangeForDividing collect: [ :e | self invert: e ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSScale >> to [
 	^ self range last
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSScale >> to: value [
 	self range: { self range first. value }
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSScale >> uninterpolate [
 	^ uninterpolate
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSScale >> uninterpolate: anObject [
 	uninterpolate := anObject
 ]

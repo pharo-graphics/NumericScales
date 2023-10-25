@@ -1,13 +1,14 @@
 Class {
-	#name : #NSNiceLinearTicksGeneratorTest,
-	#superclass : #TestCase,
+	#name : 'NSNiceLinearTicksGeneratorTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'lg'
 	],
-	#category : #'NumericInterpolator-Tests'
+	#category : 'NumericInterpolator-Tests',
+	#package : 'NumericInterpolator-Tests'
 }
 
-{ #category : #running }
+{ #category : 'running' }
 NSNiceLinearTicksGeneratorTest >> setUp [
 	| nice |
 	super setUp.
@@ -15,7 +16,7 @@ NSNiceLinearTicksGeneratorTest >> setUp [
 	lg := NSNiceLinearTicksGenerator nice: nice
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 NSNiceLinearTicksGeneratorTest >> testError [
 	self
 		should: [ lg searchMin: -98.0 max: 18.0 desired: 1 ]
@@ -27,7 +28,7 @@ NSNiceLinearTicksGeneratorTest >> testError [
 		description: 'entry to short'
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 NSNiceLinearTicksGeneratorTest >> testSearch [
 	| label |
 	lg setLooseFlag: true.

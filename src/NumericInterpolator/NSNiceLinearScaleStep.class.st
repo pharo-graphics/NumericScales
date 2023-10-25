@@ -3,53 +3,55 @@ I am an utility class for RTNiceStepSizeGenerator>>next
 
 "
 Class {
-	#name : #NSNiceLinearScaleStep,
-	#superclass : #Object,
+	#name : 'NSNiceLinearScaleStep',
+	#superclass : 'Object',
 	#instVars : [
 		'stepSize',
 		'offset',
 		'i',
 		'j'
 	],
-	#category : #'NumericInterpolator-Nice Scaling'
+	#category : 'NumericInterpolator-Nice Scaling',
+	#package : 'NumericInterpolator',
+	#tag : 'Nice Scaling'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSNiceLinearScaleStep >> i [
 	^ i
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSNiceLinearScaleStep >> i: aNumber [
 	i := aNumber
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSNiceLinearScaleStep >> j [
 	^ j
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSNiceLinearScaleStep >> j: aNumber [
 	j := aNumber
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSNiceLinearScaleStep >> offset [
 	^ offset
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSNiceLinearScaleStep >> offset: aNumber [
 	offset := aNumber
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSNiceLinearScaleStep >> stepSize [
 	^ stepSize
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSNiceLinearScaleStep >> stepSize: aNumber [
 	stepSize := aNumber
 ]

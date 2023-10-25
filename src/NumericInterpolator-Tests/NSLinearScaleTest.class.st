@@ -2,17 +2,18 @@
 A NSLinearScaleTest is a test class for testing the behavior of NSLinearScale
 "
 Class {
-	#name : #NSLinearScaleTest,
-	#superclass : #TestCase,
-	#category : #'NumericInterpolator-Tests'
+	#name : 'NSLinearScaleTest',
+	#superclass : 'TestCase',
+	#category : 'NumericInterpolator-Tests',
+	#package : 'NumericInterpolator-Tests'
 }
 
-{ #category : #running }
+{ #category : 'running' }
 NSLinearScaleTest >> classToTest [
 	^ NSLinearScale
 ]
 
-{ #category : #'test - scales' }
+{ #category : 'test - scales' }
 NSLinearScaleTest >> testSameRange [
 	| sc |
 	sc := self classToTest new
@@ -32,7 +33,7 @@ NSLinearScaleTest >> testSameRange [
 	self assert: (sc scale: 123123) equals: 0
 ]
 
-{ #category : #'test - linear' }
+{ #category : 'test - linear' }
 NSLinearScaleTest >> testScaleLinear [
 	| linear |
 	linear := self classToTest new.
@@ -48,7 +49,7 @@ NSLinearScaleTest >> testScaleLinear [
 	self assert: linear uninterpolate equals: NSUninterpolateNumber
 ]
 
-{ #category : #'test - linear' }
+{ #category : 'test - linear' }
 NSLinearScaleTest >> testScaleLinearClamp [
 	| linear |
 	linear := self classToTest new
@@ -61,7 +62,7 @@ NSLinearScaleTest >> testScaleLinearClamp [
 	self assert: (linear scale: -5) equals: 0
 ]
 
-{ #category : #'test - linear' }
+{ #category : 'test - linear' }
 NSLinearScaleTest >> testScaleLinearColors [
 	| linear |
 	linear := self classToTest new
@@ -72,7 +73,7 @@ NSLinearScaleTest >> testScaleLinearColors [
 	self assert: (linear scale: 100) equals: Color black
 ]
 
-{ #category : #'test - linear' }
+{ #category : 'test - linear' }
 NSLinearScaleTest >> testScaleLinearInvert [
 	| linear |
 	linear := self classToTest new
@@ -85,7 +86,7 @@ NSLinearScaleTest >> testScaleLinearInvert [
 		assert: (linear invert: 40) equals: -5
 ]
 
-{ #category : #'test - linear' }
+{ #category : 'test - linear' }
 NSLinearScaleTest >> testScaleLinearRound [
 	| linear |
 	linear := self classToTest new
@@ -98,7 +99,7 @@ NSLinearScaleTest >> testScaleLinearRound [
 		assert: (linear invert: 40) equals: -5
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 NSLinearScaleTest >> testTicks [
 
 	| expectedTicks scale |

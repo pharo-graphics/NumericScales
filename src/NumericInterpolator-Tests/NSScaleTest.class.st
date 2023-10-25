@@ -2,12 +2,13 @@
 A NSScaleTest is a test class for testing the behavior of NSScale
 "
 Class {
-	#name : #NSScaleTest,
-	#superclass : #TestCase,
-	#category : #'NumericInterpolator-Tests'
+	#name : 'NSScaleTest',
+	#superclass : 'TestCase',
+	#category : 'NumericInterpolator-Tests',
+	#package : 'NumericInterpolator-Tests'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 NSScaleTest >> testAccessors [
 	self assert: NSScale linear class equals: NSLinearScale.
 	self assert: NSScale log class equals: NSLogScale.
@@ -16,7 +17,7 @@ NSScaleTest >> testAccessors [
 	self assert: NSScale ordinal class equals: NSOrdinalScale
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 NSScaleTest >> testAccessorsColors [
 	#(category10 category20 category20b category20c eva10 google20 paired12 sky8)
 		do: [ :sel| | scale |
@@ -26,7 +27,7 @@ NSScaleTest >> testAccessorsColors [
 		self assert: scale range first class equals: Color ]
 ]
 
-{ #category : #'test - colors' }
+{ #category : 'test - colors' }
 NSScaleTest >> testCategories [
 	| color |
 	color := NSScale category10.
@@ -53,7 +54,7 @@ NSScaleTest >> testCategories [
 	self assert: color range size equals: 12
 ]
 
-{ #category : #'test - linear' }
+{ #category : 'test - linear' }
 NSScaleTest >> testRandom [
 	"Random uses NSScale linear"
 	| random value |
@@ -64,7 +65,7 @@ NSScaleTest >> testRandom [
 	self assert: (value between: -10 and: -5 )
 ]
 
-{ #category : #'test - colors' }
+{ #category : 'test - colors' }
 NSScaleTest >> testSetInterpolator [
 	| scale |
 	scale := NSScale linear

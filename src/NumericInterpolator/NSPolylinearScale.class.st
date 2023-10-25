@@ -2,17 +2,19 @@
 I can handle a several kind of values
 "
 Class {
-	#name : #NSPolylinearScale,
-	#superclass : #NSScale,
+	#name : 'NSPolylinearScale',
+	#superclass : 'NSScale',
 	#instVars : [
 		'k',
 		'u',
 		'i'
 	],
-	#category : #'NumericInterpolator-Scales'
+	#category : 'NumericInterpolator-Scales',
+	#package : 'NumericInterpolator',
+	#tag : 'Scales'
 }
 
-{ #category : #private }
+{ #category : 'private' }
 NSPolylinearScale >> findJ: x [
 	| lo hi mid |
 	lo := 2.
@@ -25,12 +27,12 @@ NSPolylinearScale >> findJ: x [
 	^ lo - 1
 ]
 
-{ #category : #transformation }
+{ #category : 'transformation' }
 NSPolylinearScale >> invert: anObject [
 	self shouldNotImplement
 ]
 
-{ #category : #hooks }
+{ #category : 'hooks' }
 NSPolylinearScale >> rescale [
 	| obj |
 	u := OrderedCollection new.
@@ -48,7 +50,7 @@ NSPolylinearScale >> rescale [
 		 ]
 ]
 
-{ #category : #transformation }
+{ #category : 'transformation' }
 NSPolylinearScale >> scale: x [
 	| j |
 	j := self findJ: x.

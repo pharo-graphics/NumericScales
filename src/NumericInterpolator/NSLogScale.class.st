@@ -10,45 +10,47 @@ log scale: 0
 ```
 "
 Class {
-	#name : #NSLogScale,
-	#superclass : #NSScale,
+	#name : 'NSLogScale',
+	#superclass : 'NSScale',
 	#instVars : [
 		'linear',
 		'base',
 		'positive'
 	],
-	#category : #'NumericInterpolator-Scales'
+	#category : 'NumericInterpolator-Scales',
+	#package : 'NumericInterpolator',
+	#tag : 'Scales'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSLogScale >> base [
 	^ base
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSLogScale >> base: number [
 	base := number.
 	linear domain: (domain collect: [:n | self lg: n ])
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSLogScale >> clamp [
 	^ linear clamp
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSLogScale >> clamp: x [
 	 linear clamp: x
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSLogScale >> domain: arr [
 	positive := arr first >= 0.
 	domain := arr.
 	linear domain: (arr collect: [:n | self lg: n])
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 NSLogScale >> initialize [
 	super initialize.
 	linear := self class linear.
@@ -57,22 +59,22 @@ NSLogScale >> initialize [
 	domain := #(1 0)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSLogScale >> interpolate [
 	^ linear interpolate
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSLogScale >> interpolate: x [
 	linear interpolate: x
 ]
 
-{ #category : #transformation }
+{ #category : 'transformation' }
 NSLogScale >> invert: x [
 	^ self pow: (linear invert: x)
 ]
 
-{ #category : #'math functions' }
+{ #category : 'math functions' }
 NSLogScale >> lg: x [
 	"logarithm"
 	^ (positive
@@ -83,36 +85,36 @@ NSLogScale >> lg: x [
 		/ (base ln)
 ]
 
-{ #category : #'math functions' }
+{ #category : 'math functions' }
 NSLogScale >> pow: x [
 	^ positive
 		ifTrue: [ base raisedTo: x ]
 		ifFalse: [ (base raisedTo: x negated) negated ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSLogScale >> range [
 	^ linear range
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSLogScale >> range: x [
 
 	range := x.
 	linear range: x
 ]
 
-{ #category : #transformation }
+{ #category : 'transformation' }
 NSLogScale >> scale: x [
 	^ linear scale: (self lg: x)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSLogScale >> uninterpolate [
 	^ linear uninterpolate
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSLogScale >> uninterpolate: anUninterolator [
 	linear uninterpolate: anUninterolator
 ]

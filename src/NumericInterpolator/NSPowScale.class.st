@@ -2,38 +2,40 @@
 I scale using pow function
 "
 Class {
-	#name : #NSPowScale,
-	#superclass : #NSScale,
+	#name : 'NSPowScale',
+	#superclass : 'NSScale',
 	#instVars : [
 		'linear',
 		'exponent',
 		'powp',
 		'powb'
 	],
-	#category : #'NumericInterpolator-Scales'
+	#category : 'NumericInterpolator-Scales',
+	#package : 'NumericInterpolator',
+	#tag : 'Scales'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSPowScale >> clamp [
 	^ linear clamp
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSPowScale >> clamp: x [
 	linear clamp: x
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSPowScale >> domain: x [
 	linear domain: ((domain := x) collect: [ :i | powp scale: i ])
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSPowScale >> exponent [
 	^ exponent
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSPowScale >> exponent: x [
 	exponent := x.
 	powp exponent: exponent.
@@ -41,7 +43,7 @@ NSPowScale >> exponent: x [
 	linear domain: (domain collect: [ :i | powp scale: i ])
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 NSPowScale >> initialize [
 	super initialize.
 	linear := self class linear.
@@ -51,38 +53,38 @@ NSPowScale >> initialize [
 	powb := NSPowPowScale exponent: 1 / exponent
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 NSPowScale >> interpolate [
 	^ linear interpolate
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 NSPowScale >> interpolate: x [
 	linear interpolate: x
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 NSPowScale >> invert: x [
 	^ powb scale: (linear invert: x)
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 NSPowScale >> range [
 	^ linear range
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 NSPowScale >> range: x [
 
 	range := x.
 	linear range: x
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 NSPowScale >> rescale [
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 NSPowScale >> scale: x [
 	^ linear scale: (powp scale: x)
 ]

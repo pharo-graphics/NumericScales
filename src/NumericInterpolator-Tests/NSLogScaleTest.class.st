@@ -2,16 +2,17 @@
 A NSLogScaleTest is a test class for testing the behavior of NSLogScale
 "
 Class {
-	#name : #NSLogScaleTest,
-	#superclass : #TestCase,
-	#category : #'NumericInterpolator-Tests'
+	#name : 'NSLogScaleTest',
+	#superclass : 'TestCase',
+	#category : 'NumericInterpolator-Tests',
+	#package : 'NumericInterpolator-Tests'
 }
 
-{ #category : #'test - scales' }
+{ #category : 'test - scales' }
 NSLogScaleTest >> testLogScale [
 	| log |
 	log := NSLogScale new.
-	self 
+	self
 		assert: log base equals: 10;
 		assert: log range equals: #(0 1);
 		assert: (log scale: 10) equals: 1;
@@ -25,18 +26,16 @@ NSLogScaleTest >> testLogScale [
 	self assert: ((log scale: 0.01) closeTo: 302.3371152441798).
 	self assert: ((log scale: 100) closeTo: 97.66288475582019).
 	self assert: ((log invert: 10) closeTo: 5166.754427175983).
-	
+
 	self assert: (log scale: 9000) closeTo: -2.3328856959635047.
 	log clamp: true.
 	self
 		assert: (log scale: 9000) closeTo: 0;
 		assert: log interpolate equals: NSInterpolator.
 	log interpolate: NSInterpolator
-	
-
 ]
 
-{ #category : #'test - scales' }
+{ #category : 'test - scales' }
 NSLogScaleTest >> testMultiLogScaleInvert [
 
 	| log |
@@ -49,7 +48,7 @@ NSLogScaleTest >> testMultiLogScaleInvert [
 	self assert: ((log invert: 0) closeTo: 9 exp)
 ]
 
-{ #category : #'test - scales' }
+{ #category : 'test - scales' }
 NSLogScaleTest >> testMultiLogScaleScale [
 
 	| log |
@@ -62,7 +61,7 @@ NSLogScaleTest >> testMultiLogScaleScale [
 	self assert: ((log scale: 9 exp) closeTo: 0)
 ]
 
-{ #category : #'test - scales' }
+{ #category : 'test - scales' }
 NSLogScaleTest >> testNA [
 	| log |
 	log := NSLogScale new.
@@ -76,7 +75,7 @@ NSLogScaleTest >> testNA [
 	self assert: (log scale: -10) isNaN
 ]
 
-{ #category : #'test - scales' }
+{ #category : 'test - scales' }
 NSLogScaleTest >> testTicks [
 
 	| expectedTicks scale |

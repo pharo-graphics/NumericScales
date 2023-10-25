@@ -3,8 +3,8 @@ Reference:
  	[1] An Extension of Wilkinson's Algorithm for positioning Tick Labels on Axes  (Justin Talbot, Sharon Lin, Pat Hanrahan)
 "
 Class {
-	#name : #NSNiceLinearTicksGenerator,
-	#superclass : #Object,
+	#name : 'NSNiceLinearTicksGenerator',
+	#superclass : 'Object',
 	#instVars : [
 		'nice',
 		'loose',
@@ -12,15 +12,17 @@ Class {
 		'w',
 		'epsilon'
 	],
-	#category : #'NumericInterpolator-Nice Scaling'
+	#category : 'NumericInterpolator-Nice Scaling',
+	#package : 'NumericInterpolator',
+	#tag : 'Nice Scaling'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 NSNiceLinearTicksGenerator class >> nice: aNiceGenerator [
 	^ self new nice: aNiceGenerator
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 NSNiceLinearTicksGenerator >> coverageMin: dmin max: dmax lmin: lmin lmax: lmax [
 	| a b c|
 	a := dmax - lmax.
@@ -29,7 +31,7 @@ NSNiceLinearTicksGenerator >> coverageMin: dmin max: dmax lmin: lmin lmax: lmax 
 	^ 1 - ( 0.5 * (((a * a) + (b * b))/ (c * c)) )
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 NSNiceLinearTicksGenerator >> coverageMin: dmin max: dmax span: span [
 	| range r half|
 	range := dmax - dmin.
@@ -40,7 +42,7 @@ NSNiceLinearTicksGenerator >> coverageMin: dmin max: dmax span: span [
 	^ 1.0
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 NSNiceLinearTicksGenerator >> density: k m: m dmin: dmin dmax: dmax lmin: lmin lmax: lmax [
 	"* k		number of labels
 	 * m		number of desired labels
@@ -60,13 +62,13 @@ NSNiceLinearTicksGenerator >> density: k m: m dmin: dmin dmax: dmax lmin: lmin l
 	^ 2 - ( (r/rt) max: (rt/r) )
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 NSNiceLinearTicksGenerator >> densityMax: k m: m [
 	(k >= m) ifTrue: [ ^ 2 - ((k-1)/(m-1)) ].
 	^ 1
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 NSNiceLinearTicksGenerator >> epsilon [
 	" Compute the machine epsilon for the float type, the largest positive
  	floating-point value that, when added to 1, results in a value equal to 1 due to
@@ -79,12 +81,12 @@ NSNiceLinearTicksGenerator >> epsilon [
 	^ epsilon
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 NSNiceLinearTicksGenerator >> flooredMod: a n: num [
 	^ a - (num * (a / num) floor)
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 NSNiceLinearTicksGenerator >> initialize [
 	super initialize.
 	loose := false.
@@ -92,17 +94,17 @@ NSNiceLinearTicksGenerator >> initialize [
 	self nice: NSNiceLinearScaleStepSizeGenerator new
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 NSNiceLinearTicksGenerator >> legibility: min max: max step: step [
 	^ 1
 ]
 
-{ #category : #public }
+{ #category : 'public' }
 NSNiceLinearTicksGenerator >> nice: aNiceGenerator [
 	nice := aNiceGenerator
 ]
 
-{ #category : #public }
+{ #category : 'public' }
 NSNiceLinearTicksGenerator >> searchMin: dmin max: dmax desired: desiredNumberOfTicks [
 	| best sm dm cm delta bestScore k |
 	best := RSNiceLinearScaleResult new.
@@ -182,7 +184,7 @@ NSNiceLinearTicksGenerator >> searchMin: dmin max: dmax desired: desiredNumberOf
 	^ best
 ]
 
-{ #category : #public }
+{ #category : 'public' }
 NSNiceLinearTicksGenerator >> setLooseFlag: aBool [
 	"Configuration to 'loose' labelings.
 	The extreme labels can be placement both inside(setLooseFlag: false) and outside (setLooseFlag: true) of the range of the data.
@@ -201,26 +203,26 @@ NSNiceLinearTicksGenerator >> setLooseFlag: aBool [
 	nice reset
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 NSNiceLinearTicksGenerator >> simplicity: min max: max step: step [
 	(nice qvar size > 1) ifTrue: [
 		^ 1 - (n i/ (nice qvar size - 1)) - n j + (self vMin: min max: max step: step) ].
 	^ 1 - n j + (self vMin: min max: max step: step)
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 NSNiceLinearTicksGenerator >> simplicityMax [
 	(nice qvar size > 1) ifTrue: [ ^ 1 - ((n i )/(nice qvar size -1)) - n j + 1.0 ].
 	 ^ 1 - n j + 1.0
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 NSNiceLinearTicksGenerator >> vMin: min max: max step: step [
 	^ ((self flooredMod: min n: step) < (self epsilon)
 	and: [ min <= 0 and: [ max >= 0 ] ]) ifTrue: [ 1 ] ifFalse: [ 0 ]
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 NSNiceLinearTicksGenerator >> w: s c: c d: d l: l [
 	^ (w first * s) + (w second * c) + (w third * d) + (w fourth * l)
 ]

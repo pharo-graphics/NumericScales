@@ -1,10 +1,11 @@
 Class {
-	#name : #NSSLnScaleTest,
-	#superclass : #TestCase,
-	#category : #'NumericInterpolator-Tests'
+	#name : 'NSSLnScaleTest',
+	#superclass : 'TestCase',
+	#category : 'NumericInterpolator-Tests',
+	#package : 'NumericInterpolator-Tests'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 NSSLnScaleTest >> testBasic [
 	| s epsilon |
 	epsilon := 2.220446049250313e-16.
@@ -16,7 +17,7 @@ NSSLnScaleTest >> testBasic [
 	self assert: (s scale: 0) closeTo: 100
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 NSSLnScaleTest >> testMultiple [
 	| s |
 	s:= NSLnScale new
@@ -29,7 +30,7 @@ NSSLnScaleTest >> testMultiple [
 	self assert: (s scale: -100) closeTo: 100
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 NSSLnScaleTest >> testTicks [
 
 	| expectedTicks scale |

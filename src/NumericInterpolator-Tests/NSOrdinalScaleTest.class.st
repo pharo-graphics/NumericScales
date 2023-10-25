@@ -2,17 +2,18 @@
 A NSOrdinalScaleTest is a test class for testing the behavior of NSOrdinalScale
 "
 Class {
-	#name : #NSOrdinalScaleTest,
-	#superclass : #TestCase,
-	#category : #'NumericInterpolator-Tests'
+	#name : 'NSOrdinalScaleTest',
+	#superclass : 'TestCase',
+	#category : 'NumericInterpolator-Tests',
+	#package : 'NumericInterpolator-Tests'
 }
 
-{ #category : #running }
+{ #category : 'running' }
 NSOrdinalScaleTest >> classToTest [
 	^ NSOrdinalScale
 ]
 
-{ #category : #'test - scales' }
+{ #category : 'test - scales' }
 NSOrdinalScaleTest >> testOrdinalScale [
 	| ordinal |
 	ordinal := self classToTest new
@@ -24,7 +25,7 @@ NSOrdinalScaleTest >> testOrdinalScale [
 		assert: (ordinal scale: 'f') equals: 60
 ]
 
-{ #category : #'test - scales' }
+{ #category : 'test - scales' }
 NSOrdinalScaleTest >> testOrdinalScaleRangeBands [
 	| ordinal |
 	ordinal := self classToTest new
@@ -39,7 +40,7 @@ NSOrdinalScaleTest >> testOrdinalScaleRangeBands [
 		assert: ordinal rangeExtent equals: #(0 960)
 ]
 
-{ #category : #'test - scales' }
+{ #category : 'test - scales' }
 NSOrdinalScaleTest >> testOrdinalScaleRangePoints [
 	| ordinal |
 	ordinal := self classToTest new
@@ -53,7 +54,7 @@ NSOrdinalScaleTest >> testOrdinalScaleRangePoints [
 		assert: ordinal rangeExtent equals: #(0 960)
 ]
 
-{ #category : #'test - scales' }
+{ #category : 'test - scales' }
 NSOrdinalScaleTest >> testOrdinalScaleRangeRoundBands [
 	| ordinal |
 	ordinal := self classToTest new
@@ -77,7 +78,7 @@ NSOrdinalScaleTest >> testOrdinalScaleRangeRoundBands [
 		assert: ordinal rangeExtent equals: #(0 960)
 ]
 
-{ #category : #'test - scales' }
+{ #category : 'test - scales' }
 NSOrdinalScaleTest >> testOrdinalScaleRangeRoundPoints [
 	| ordinal |
 	ordinal := self classToTest new

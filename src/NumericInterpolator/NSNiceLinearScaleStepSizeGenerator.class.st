@@ -19,8 +19,8 @@ label asString
 This prints  '(Score: 0.14) -100.00	-60.00	-20.00	20.00	'
 "
 Class {
-	#name : #NSNiceLinearScaleStepSizeGenerator,
-	#superclass : #Object,
+	#name : 'NSNiceLinearScaleStepSizeGenerator',
+	#superclass : 'Object',
 	#instVars : [
 		'qvar',
 		'i',
@@ -35,15 +35,17 @@ Class {
 		'niceStep',
 		'o'
 	],
-	#category : #'NumericInterpolator-Nice Scaling'
+	#category : 'NumericInterpolator-Nice Scaling',
+	#package : 'NumericInterpolator',
+	#tag : 'Nice Scaling'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSNiceLinearScaleStepSizeGenerator >> base [
 	^ base
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 NSNiceLinearScaleStepSizeGenerator >> initialize [
 	"Generates a NiceNumberGenerator"
 
@@ -53,12 +55,12 @@ NSNiceLinearScaleStepSizeGenerator >> initialize [
 	self setQ: #(1 5 2 2.5 4 3) base: 10
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 NSNiceLinearScaleStepSizeGenerator >> logB: a [
 	^ a ln / base ln
 ]
 
-{ #category : #public }
+{ #category : 'public' }
 NSNiceLinearScaleStepSizeGenerator >> next [
 	| oSet |
 
@@ -99,7 +101,7 @@ NSNiceLinearScaleStepSizeGenerator >> next [
 	^ niceStep
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 NSNiceLinearScaleStepSizeGenerator >> offsets: tj q: tq [
 	| offs |
 	offs := Array new: tj.
@@ -108,17 +110,17 @@ NSNiceLinearScaleStepSizeGenerator >> offsets: tj q: tq [
 	^ offs
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 NSNiceLinearScaleStepSizeGenerator >> qat: index [
 	^ qvar at: index + 1
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSNiceLinearScaleStepSizeGenerator >> qvar [
 	^ qvar
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 NSNiceLinearScaleStepSizeGenerator >> reset [
 	resetRequired ifFalse: [ ^ self ].
 	i := 0.
@@ -130,7 +132,7 @@ NSNiceLinearScaleStepSizeGenerator >> reset [
 	resetRequired := false
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 NSNiceLinearScaleStepSizeGenerator >> setQ: anArray base: aNumber [
 	"anArray: preference ordered list of niceStep step sizes.
 	The deault is set by the initializer selector
@@ -148,7 +150,7 @@ NSNiceLinearScaleStepSizeGenerator >> setQ: anArray base: aNumber [
 	resetRequired := false
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 NSNiceLinearScaleStepSizeGenerator >> stepSize: tj q: tq [
 
 	^ tj * tq / (base raisedTo: (self logB: tj*tq ) floor )

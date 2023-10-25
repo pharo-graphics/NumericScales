@@ -2,12 +2,13 @@
 A NSPolylinearScaleTest is a test class for testing the behavior of NSPolylinearScale
 "
 Class {
-	#name : #NSPolylinearScaleTest,
-	#superclass : #TestCase,
-	#category : #'NumericInterpolator-Tests'
+	#name : 'NSPolylinearScaleTest',
+	#superclass : 'TestCase',
+	#category : 'NumericInterpolator-Tests',
+	#package : 'NumericInterpolator-Tests'
 }
 
-{ #category : #'test - linear' }
+{ #category : 'test - linear' }
 NSPolylinearScaleTest >> testScalePolyLinear [
 	| linear |
 	linear := NSScale linear

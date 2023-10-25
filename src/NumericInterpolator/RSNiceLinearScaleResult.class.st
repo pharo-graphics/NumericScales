@@ -20,49 +20,51 @@ prints the following: ""(Score: 0.75) 1.00	2.00	3.00	4.00	5.00	""
 The min and max represents the range of the ticks
 "
 Class {
-	#name : #RSNiceLinearScaleResult,
-	#superclass : #Object,
+	#name : 'RSNiceLinearScaleResult',
+	#superclass : 'Object',
 	#instVars : [
 		'min',
 		'max',
 		'step',
 		'score'
 	],
-	#category : #'NumericInterpolator-Nice Scaling'
+	#category : 'NumericInterpolator-Nice Scaling',
+	#package : 'NumericInterpolator',
+	#tag : 'Nice Scaling'
 }
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 RSNiceLinearScaleResult >> initialize [
 	super initialize.
 	score := 0
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 RSNiceLinearScaleResult >> max [
 	^ max
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 RSNiceLinearScaleResult >> max: aNumber [
 	max := aNumber
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 RSNiceLinearScaleResult >> min [
 	^ min
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 RSNiceLinearScaleResult >> min: aNumber [
 	min := aNumber
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 RSNiceLinearScaleResult >> numberOfTicks [
 	^ self ticks / step
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 RSNiceLinearScaleResult >> printOn: aStream [
 	| x |
 	aStream
@@ -76,27 +78,27 @@ RSNiceLinearScaleResult >> printOn: aStream [
 		x := x + step ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 RSNiceLinearScaleResult >> score [
 	^ score
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 RSNiceLinearScaleResult >> score: aNumber [
 	score := aNumber
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 RSNiceLinearScaleResult >> step [
 	^ step
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 RSNiceLinearScaleResult >> step: aNumber [
 	step := aNumber
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 RSNiceLinearScaleResult >> ticks [
 	^  min < 0 ifTrue: [
 		 max < 0

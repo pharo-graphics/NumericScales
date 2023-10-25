@@ -17,12 +17,14 @@ x invert: 1250.
 
 "
 Class {
-	#name : #NSUninterpolateClamp,
-	#superclass : #NSUninterpolate,
-	#category : #'NumericInterpolator-Interpolators'
+	#name : 'NSUninterpolateClamp',
+	#superclass : 'NSUninterpolate',
+	#category : 'NumericInterpolator-Interpolators',
+	#package : 'NumericInterpolator',
+	#tag : 'Interpolators'
 }
 
-{ #category : #interpolating }
+{ #category : 'interpolating' }
 NSUninterpolateClamp >> uninterpolate: x [
 	^ 0 max: (1 min: ((x - a ) / b))
 ]

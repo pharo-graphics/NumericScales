@@ -2,12 +2,13 @@
 A NSPowScaleTest is a test class for testing the behavior of NSPowScale
 "
 Class {
-	#name : #NSPowScaleTest,
-	#superclass : #TestCase,
-	#category : #'NumericInterpolator-Tests'
+	#name : 'NSPowScaleTest',
+	#superclass : 'TestCase',
+	#category : 'NumericInterpolator-Tests',
+	#package : 'NumericInterpolator-Tests'
 }
 
-{ #category : #'test - scales' }
+{ #category : 'test - scales' }
 NSPowScaleTest >> testPowScale [
 	| pow |
 	pow := NSPowScale new.
@@ -36,7 +37,7 @@ NSPowScaleTest >> testPowScale [
 		assert: pow range equals: #(-10 10)
 ]
 
-{ #category : #'test - scales' }
+{ #category : 'test - scales' }
 NSPowScaleTest >> testSqrt [
 	| sqrt |
 	sqrt := NSScale sqrt.
@@ -52,7 +53,7 @@ NSPowScaleTest >> testSqrt [
 	self assert: (sqrt scale: 4661900) closeTo: 78.34947695663722
 ]
 
-{ #category : #'test - scales' }
+{ #category : 'test - scales' }
 NSPowScaleTest >> testTicks [
 
 	| expectedTicks scale |

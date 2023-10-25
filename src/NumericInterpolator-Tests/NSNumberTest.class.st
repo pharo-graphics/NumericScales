@@ -1,10 +1,11 @@
 Class {
-	#name : #NSNumberTest,
-	#superclass : #TestCase,
-	#category : #'NumericInterpolator-Tests'
+	#name : 'NSNumberTest',
+	#superclass : 'TestCase',
+	#category : 'NumericInterpolator-Tests',
+	#package : 'NumericInterpolator-Tests'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 NSNumberTest >> testToCount [
 
 	| c |
@@ -12,7 +13,7 @@ NSNumberTest >> testToCount [
 	self assert: c size equals: 5
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 NSNumberTest >> testToCount2 [
 
 	| c |
@@ -20,7 +21,7 @@ NSNumberTest >> testToCount2 [
 	self assert: c size equals: 2
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 NSNumberTest >> testToCount3 [
 
 	| c |
@@ -29,7 +30,7 @@ NSNumberTest >> testToCount3 [
 	self assert: c equals: (Array with: 1)
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 NSNumberTest >> testToCount4 [
 
 	| c |

@@ -5,33 +5,35 @@ NSUninterpolateClamp
 NSUninterpolateNumber
 "
 Class {
-	#name : #NSUninterpolate,
-	#superclass : #Object,
+	#name : 'NSUninterpolate',
+	#superclass : 'Object',
 	#instVars : [
 		'a',
 		'b'
 	],
-	#category : #'NumericInterpolator-Interpolators'
+	#category : 'NumericInterpolator-Interpolators',
+	#package : 'NumericInterpolator',
+	#tag : 'Interpolators'
 }
 
-{ #category : #interpolating }
+{ #category : 'interpolating' }
 NSUninterpolate class >> uninterpolate: aNum1 and: aNum2 [
 	^ self new uninterpolate: aNum1 and: aNum2
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSUninterpolate >> stopValue: aNum1 stop: aNum2 [
 	aNum1 isZero ifFalse: [ ^ aNum1 ].
 	aNum2 isZero ifTrue: [ ^ Float infinity ].
 	^ 1 / aNum2
 ]
 
-{ #category : #interpolating }
+{ #category : 'interpolating' }
 NSUninterpolate >> uninterpolate: x [
 	self subclassResponsibility
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSUninterpolate >> uninterpolate: aNum1 and: aNum2 [
 
 	a := aNum1.

@@ -1,13 +1,14 @@
 Class {
-	#name : #NSDomainAndRangeTest,
-	#superclass : #ParametrizedTestCase,
+	#name : 'NSDomainAndRangeTest',
+	#superclass : 'ParametrizedTestCase',
 	#instVars : [
 		'scale'
 	],
-	#category : #'NumericInterpolator-Tests'
+	#category : 'NumericInterpolator-Tests',
+	#package : 'NumericInterpolator-Tests'
 }
 
-{ #category : #'building suites' }
+{ #category : 'building suites' }
 NSDomainAndRangeTest class >> testParameters [
 
 	^ ParametrizedTestMatrix new
@@ -19,19 +20,19 @@ NSDomainAndRangeTest class >> testParameters [
 		  yourself
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 NSDomainAndRangeTest >> scale [
 
 	^ scale
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 NSDomainAndRangeTest >> scale: aScale [
 
 	scale := aScale
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 NSDomainAndRangeTest >> setUp [
 
 	super setUp.
@@ -40,14 +41,14 @@ NSDomainAndRangeTest >> setUp [
 		range: { 1. 2 }
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 NSDomainAndRangeTest >> testInvertRange [
 
 	self assert: scale domain first closeTo: (scale invert: scale range first).
 	self assert: scale domain second closeTo: (scale invert: scale range second)
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 NSDomainAndRangeTest >> testScaleDomain [
 
 	self assert: scale range first closeTo: (scale scale: scale domain first).

@@ -2,12 +2,14 @@
 Same as NSColorRGBAInterpolation but for hsva  
 "
 Class {
-	#name : #NSColorHSVAInterpolator,
-	#superclass : #NSColorRGBAInterpolator,
-	#category : #'NumericInterpolator-Interpolators'
+	#name : 'NSColorHSVAInterpolator',
+	#superclass : 'NSColorRGBAInterpolator',
+	#category : 'NumericInterpolator-Interpolators',
+	#package : 'NumericInterpolator',
+	#tag : 'Interpolators'
 }
 
-{ #category : #interpolation }
+{ #category : 'interpolation' }
 NSColorHSVAInterpolator >> interpolate: t [
 	^ Color
 		h: start hue + ((stop hue - start hue) * t)

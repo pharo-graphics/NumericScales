@@ -1,10 +1,11 @@
 Class {
-	#name : #NSSymLogScaleTest,
-	#superclass : #TestCase,
-	#category : #'NumericInterpolator-Tests'
+	#name : 'NSSymLogScaleTest',
+	#superclass : 'TestCase',
+	#category : 'NumericInterpolator-Tests',
+	#package : 'NumericInterpolator-Tests'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 NSSymLogScaleTest >> testBasic [
 	| log |
 	log := NSSymLogScale new
@@ -16,7 +17,7 @@ NSSymLogScaleTest >> testBasic [
 	self assert: (log invert: 50) closeTo: 0
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 NSSymLogScaleTest >> testInvert [
 
 	| scale domain range |
@@ -30,7 +31,7 @@ NSSymLogScaleTest >> testInvert [
 	self assert: scale domain second closeTo: (scale invert: scale range second)
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 NSSymLogScaleTest >> testTicks [
 
 	| expectedTicks scale |

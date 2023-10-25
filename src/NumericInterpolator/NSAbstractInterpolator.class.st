@@ -2,26 +2,28 @@
 I have two ranges the start and the stop
 "
 Class {
-	#name : #NSAbstractInterpolator,
-	#superclass : #NSInterpolator,
+	#name : 'NSAbstractInterpolator',
+	#superclass : 'NSInterpolator',
 	#instVars : [
 		'start',
 		'stop'
 	],
-	#category : #'NumericInterpolator-Interpolators'
+	#category : 'NumericInterpolator-Interpolators',
+	#package : 'NumericInterpolator',
+	#tag : 'Interpolators'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 NSAbstractInterpolator class >> isAbstract [
 	^ self == NSAbstractInterpolator
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSAbstractInterpolator >> start: anObject [
 	start := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSAbstractInterpolator >> stop: anObject [
 	stop := anObject
 ]

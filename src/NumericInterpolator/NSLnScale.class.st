@@ -2,25 +2,27 @@
 I use natural logarithms to compute scales.
 "
 Class {
-	#name : #NSLnScale,
-	#superclass : #NSScale,
+	#name : 'NSLnScale',
+	#superclass : 'NSScale',
 	#instVars : [
 		'linear'
 	],
-	#category : #'NumericInterpolator-Scales'
+	#category : 'NumericInterpolator-Scales',
+	#package : 'NumericInterpolator',
+	#tag : 'Scales'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSLnScale >> clamp [
 	^ linear clamp
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSLnScale >> clamp: x [
 	 linear clamp: x
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSLnScale >> domain: arr [
 	| epsilon |
 	epsilon := 2.220446049250313e-16.
@@ -28,40 +30,40 @@ NSLnScale >> domain: arr [
 	linear domain: (domain collect: [ :n | n ln ])
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 NSLnScale >> initialize [
 	super initialize.
 	linear := self class linear
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSLnScale >> interpolate [
 	^ linear interpolate
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSLnScale >> interpolate: x [
 	linear interpolate: x
 ]
 
-{ #category : #transformation }
+{ #category : 'transformation' }
 NSLnScale >> invert: x [
 	^ (linear invert: x) exp
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSLnScale >> range [
 	^ linear range
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NSLnScale >> range: x [
 
 	range := x.
 	linear range: x
 ]
 
-{ #category : #transformation }
+{ #category : 'transformation' }
 NSLnScale >> scale: x [
 
 	^ linear scale: (x max: 2.220446049250313e-16) ln

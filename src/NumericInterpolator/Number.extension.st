@@ -1,6 +1,6 @@
-Extension { #name : #Number }
+Extension { #name : 'Number' }
 
-{ #category : #'*NumericInterpolator' }
+{ #category : '*NumericInterpolator' }
 Number >> to: upperBound count: count [
 	"Answer an Interval from the receiver up to the argument, stop,
 	incrementing by step."

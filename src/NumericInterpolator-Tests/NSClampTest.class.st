@@ -1,10 +1,11 @@
 Class {
-	#name : #NSClampTest,
-	#superclass : #TestCase,
-	#category : #'NumericInterpolator-Tests'
+	#name : 'NSClampTest',
+	#superclass : 'TestCase',
+	#category : 'NumericInterpolator-Tests',
+	#package : 'NumericInterpolator-Tests'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 NSClampTest >> testBasic01 [
 	| x |
 
@@ -24,7 +25,7 @@ NSClampTest >> testBasic01 [
 	self assert: (x invert: 1250) equals: 100
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 NSClampTest >> testBasic02 [
 	| x |
 	x := NSScale sqrt
@@ -41,7 +42,7 @@ NSClampTest >> testBasic02 [
 	self assert: (x invert: 1250) closeTo: 100
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 NSClampTest >> testBasic03 [
 	| x |
 
